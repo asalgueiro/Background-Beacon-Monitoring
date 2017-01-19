@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="uk.ac.lancaster.library.backgroundbeacons"
+    id="com.lulibrary.backgroundbeacons"
     version="0.0.1">
 
   <name>Background Beacon Detection Plugion</name>
@@ -15,7 +15,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="BackgroundBeaconManager" >
-      <param name="android-package" value="uk.ac.lancaster.library.backgroundbeacons.BackgroundBeaconManager"/>
+      <param name="android-package" value="backgroundbeacons.BackgroundBeaconManager"/>
       </feature>
     </config-file>
 
@@ -28,7 +28,7 @@
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <receiver android:name="uk.ac.lancaster.library.backgroundbeacons.StartupBroadcastReceiver" >
+      <receiver android:name="backgroundbeacons.StartupBroadcastReceiver" >
         <intent-filter>
           <action android:name="android.intent.action.BOOT_COMPLETED" />
           <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
@@ -38,25 +38,23 @@
       <service android:enabled="true"
         android:exported="true"
         android:isolatedProcess="false"
-        android:label="myJourneysBackgroundBeaconService"
-        android:name="uk.ac.lancaster.library.backgroundbeacons.BackgroundBeaconService" />
+        android:label="BackgroundBeaconService"
+        android:name="backgroundbeacons.BackgroundBeaconService" />
     </config-file>
 
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BackgroundBeaconManager.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BackgroundBeaconService.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/StartupBroadcastReceiver.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/SharedPreferencesUtility.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BeaconEvent.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BeaconInfo.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BeaconRegion.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BeaconTrackingEvent.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/RegionTrackingEvent.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BeaconTrackingService.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BeaconLoggingMonitorNotifier.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/MonitoringConsumer.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-    <source-file src="src/android/uk/ac/lancaster/library/backgroundbeacons/BeaconLoggingRangeNotifier.java" target-dir="src/uk/ac/lancaster/library/backgroundbeacons" />
-
-    <!-- <source-file src="libs/android/altbeacon.jar" target-dir="libs" framework="true" /> -->
+    <source-file src="src/android/BackgroundBeaconManager.java" target-dir="src" />
+    <source-file src="src/android/BackgroundBeaconService.java" target-dir="src" />
+    <source-file src="src/android/StartupBroadcastReceiver.java" target-dir="src" />
+    <source-file src="src/android/SharedPreferencesUtility.java" target-dir="src" />
+    <source-file src="src/android/BeaconEvent.java" target-dir="src" />
+    <source-file src="src/android/BeaconInfo.java" target-dir="src" />
+    <source-file src="src/android/BeaconRegion.java" target-dir="src" />
+    <source-file src="src/android/BeaconTrackingEvent.java" target-dir="src" />
+    <source-file src="src/android/RegionTrackingEvent.java" target-dir="src" />
+    <source-file src="src/android/BeaconTrackingService.java" target-dir="src" />
+    <source-file src="src/android/BeaconLoggingMonitorNotifier.java" target-dir="src" />
+    <source-file src="src/android/MonitoringConsumer.java" target-dir="src" />
+    <source-file src="src/android/BeaconLoggingRangeNotifier.java" target-dir="src" />
   </platform>
 
 </plugin>
