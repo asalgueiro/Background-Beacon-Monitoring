@@ -1,4 +1,4 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
 import org.altbeacon.beacon.BeaconConsumer;
 // import org.altbeacon.beacon.MonitorNotifier;
@@ -25,7 +25,7 @@ public class MonitoringConsumer implements BeaconConsumer {
   }
 
   public void onBeaconServiceConnect() {
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BEACON CONSUMER CONNECTED");
+    Log.d("backgroundbeacons", "BEACON CONSUMER CONNECTED");
   }
 
   public boolean bindService(Intent intent, ServiceConnection conn, int arg2) {

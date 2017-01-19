@@ -1,7 +1,7 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
-import uk.ac.lancaster.library.backgroundbeacons.BeaconEvent;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconRegion;
+import backgroundbeacons.BeaconEvent;
+import backgroundbeacons.BeaconRegion;
 
 import org.json.JSONObject;
 import org.json.JSONException;

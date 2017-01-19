@@ -1,4 +1,4 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -11,9 +11,9 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import uk.ac.lancaster.library.backgroundbeacons.SharedPreferencesUtility;
-import uk.ac.lancaster.library.backgroundbeacons.BackgroundBeaconService;
-import uk.ac.lancaster.library.backgroundbeacons.BackgroundBeaconService.LocalBinder;
+import backgroundbeacons.SharedPreferencesUtility;
+import backgroundbeacons.BackgroundBeaconService;
+import backgroundbeacons.BackgroundBeaconService.LocalBinder;
 import android.content.ServiceConnection;
 import android.content.ComponentName;
 import android.os.IBinder;
@@ -45,7 +45,7 @@ public class BackgroundBeaconManager extends CordovaPlugin {
 
       if (!this.settings.exist()) {
 
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Setting preferences");
+        Log.d("backgroundbeacons", "Setting preferences");
 
         this.settings.setApiParticipantToken(args.getString(0));
         this.settings.setApiParticpantEmail(args.getString(1));
@@ -54,10 +54,10 @@ public class BackgroundBeaconManager extends CordovaPlugin {
         this.settings.setApiVersion(args.getString(4));
         this.settings.setSendMovementData(args.getBoolean(5));
       } else {
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Preferences already exist");
+        Log.d("backgroundbeacons", "Preferences already exist");
       }
 
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "Starting intent service");
+      Log.d("backgroundbeacons", "Starting intent service");
 
       Intent startServiceIntent = new Intent(this.cordova.getActivity().getApplicationContext(), BackgroundBeaconService.class);
       this.cordova.getActivity().getApplicationContext().bindService(startServiceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
@@ -66,7 +66,7 @@ public class BackgroundBeaconManager extends CordovaPlugin {
       callbackContent.success();
 
     } else if (action.equals("startMonitoringRegion")) {
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "Started monitoring region");
+      Log.d("backgroundbeacons", "Started monitoring region");
       if(serviceBound) {
 
         Integer major;
@@ -84,32 +84,32 @@ public class BackgroundBeaconManager extends CordovaPlugin {
           minor = args.getInt(3);
         }
 
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Major: " + major);
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Minor: " + minor);
+        Log.d("backgroundbeacons", "Major: " + major);
+        Log.d("backgroundbeacons", "Minor: " + minor);
 
         backgroundBeaconService.startMonitoringRegion(args.getString(0), args.getString(1), major, minor);
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Service bound and starting monitoring region called");
+        Log.d("backgroundbeacons", "Service bound and starting monitoring region called");
         callbackContent.success();
       } else {
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Service not bound");
+        Log.d("backgroundbeacons", "Service not bound");
         callbackContent.error("SERVICE NOT BOUND");
       }
 
     } else if (action.equals("stopMonitoringRegion")) {
 
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "Stop monitoring region");
+      Log.d("backgroundbeacons", "Stop monitoring region");
       if(serviceBound) {
         backgroundBeaconService.stopMonitoringRegion(args.getString(0));
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Service bound and stop monitoring region called");
+        Log.d("backgroundbeacons", "Service bound and stop monitoring region called");
         callbackContent.success();
       } else {
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Service not bound");
+        Log.d("backgroundbeacons", "Service not bound");
         callbackContent.error("SERVICE NOT BOUND");
       }
 
     } else if (action.equals("startRangingRegion")) {
 
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "Started ranging region");
+      Log.d("backgroundbeacons", "Started ranging region");
       if(serviceBound) {
 
         Integer major;
@@ -127,31 +127,31 @@ public class BackgroundBeaconManager extends CordovaPlugin {
           minor = args.getInt(3);
         }
 
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Major: " + major);
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Minor: " + minor);
+        Log.d("backgroundbeacons", "Major: " + major);
+        Log.d("backgroundbeacons", "Minor: " + minor);
 
         backgroundBeaconService.startRangingRegion(args.getString(0), args.getString(1), major, minor);
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Service bound and starting ranging region called");
+        Log.d("backgroundbeacons", "Service bound and starting ranging region called");
         callbackContent.success();
       } else {
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Service not bound");
+        Log.d("backgroundbeacons", "Service not bound");
         callbackContent.error("SERVICE NOT BOUND");
       }
 
     } else if (action.equals("stopRangingRegion")) {
 
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "Stop Ranging region");
+      Log.d("backgroundbeacons", "Stop Ranging region");
       if(serviceBound) {
         backgroundBeaconService.stopRangingRegion(args.getString(0));
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Service bound and stop ranging region called");
+        Log.d("backgroundbeacons", "Service bound and stop ranging region called");
         callbackContent.success();
       } else {
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "Service not bound");
+        Log.d("backgroundbeacons", "Service not bound");
         callbackContent.error("SERVICE NOT BOUND");
       }
 
     } else if (action.equals("setMovementPreference")) {
-      Log.d("uk.ac.lancaster.library.myjourneys", "Passed in arg: " + args.getBoolean(0));
+      Log.d("myjourneys", "Passed in arg: " + args.getBoolean(0));
       backgroundBeaconService.setMovementPreference(args.getBoolean(0));
     } else if (action.equals("requestPermissions")) {
       this.callbackContext = callbackContent;
@@ -167,15 +167,15 @@ public class BackgroundBeaconManager extends CordovaPlugin {
 
   public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults) throws JSONException {
 
-    Log.d("uk.ac.lancaster.library.myjourneys", "Grant Results length: " + grantResults.length);
-    Log.d("uk.ac.lancaster.library.myjourneys", "request code: " + requestCode);
+    Log.d("myjourneys", "Grant Results length: " + grantResults.length);
+    Log.d("myjourneys", "request code: " + requestCode);
 
     switch(requestCode) {
 
       case 0:
 
         if (grantResults.length != 2) {
-          Log.d("uk.ac.lancaster.library.myjourneys", "PERMISSION CHECK FAILED");
+          Log.d("myjourneys", "PERMISSION CHECK FAILED");
           this.callbackContext.error("PERMISSION CHECK FAILED");
         } else {
 
@@ -183,12 +183,12 @@ public class BackgroundBeaconManager extends CordovaPlugin {
           // The plugin only requires one of COARSE_LOCATION or FINE_LOCATION to access iBeacon information.
 
           if (grantResults[0] == PackageManager.PERMISSION_DENIED && grantResults[1] == PackageManager.PERMISSION_DENIED) {
-            Log.d("uk.ac.lancaster.library.myjourneys", "BOTH PERMISSIONS DENIED");
+            Log.d("myjourneys", "BOTH PERMISSIONS DENIED");
             this.callbackContext.error("PERMISSION DENIED");
             return;
           }
 
-          Log.d("uk.ac.lancaster.library.myjourneys", "PERMISSIONS NOT DENIED");
+          Log.d("myjourneys", "PERMISSIONS NOT DENIED");
 
           this.callbackContext.success();
         }

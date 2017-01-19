@@ -1,6 +1,6 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
-import uk.ac.lancaster.library.backgroundbeacons.BeaconInfo;
+import backgroundbeacons.BeaconInfo;
 import org.json.JSONObject;
 import org.json.JSONException;
 

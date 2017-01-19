@@ -1,4 +1,4 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
 import android.content.Context;
 import android.content.SharedPreferences;

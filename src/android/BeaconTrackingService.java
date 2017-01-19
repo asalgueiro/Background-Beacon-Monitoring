@@ -1,6 +1,6 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
-import uk.ac.lancaster.library.backgroundbeacons.SharedPreferencesUtility;
+import backgroundbeacons.SharedPreferencesUtility;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,8 +12,8 @@ import android.util.Log;
 import java.net.URL;
 import java.net.HttpURLConnection;
 
-import uk.ac.lancaster.library.backgroundbeacons.BeaconTrackingEvent;
-import uk.ac.lancaster.library.backgroundbeacons.RegionTrackingEvent;
+import backgroundbeacons.BeaconTrackingEvent;
+import backgroundbeacons.RegionTrackingEvent;
 
 public class BeaconTrackingService {
 

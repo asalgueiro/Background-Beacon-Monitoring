@@ -1,4 +1,4 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
 import android.app.Application;
 import android.app.IntentService;
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 
-import uk.ac.lancaster.library.backgroundbeacons.SharedPreferencesUtility;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconLoggingMonitorNotifier;
+import backgroundbeacons.SharedPreferencesUtility;
+import backgroundbeacons.BeaconLoggingMonitorNotifier;
 
 public class BackgroundBeaconService extends Service {
 
@@ -44,18 +44,18 @@ public class BackgroundBeaconService extends Service {
 
   public void onCreate() {
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: Creating BackgroundBeaconService");
+    Log.d("backgroundbeacons", "BACKGROUND: Creating BackgroundBeaconService");
 
     super.onCreate();
 
     this.settings = new SharedPreferencesUtility(this.getApplicationContext());
 
     if (this.settings.exist()) {
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "API PARTICIPANT TOKEN: " + this.settings.getApiParticipantToken());
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "API PARTICIPANT EMAIL: " + this.settings.getApiParticipantEmail());
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "DEVICE ID: " + this.settings.getDeviceId());
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "API URL: " + this.settings.getApiUrl());
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "API VERSION: " + this.settings.getApiVersion());
+      Log.d("backgroundbeacons", "API PARTICIPANT TOKEN: " + this.settings.getApiParticipantToken());
+      Log.d("backgroundbeacons", "API PARTICIPANT EMAIL: " + this.settings.getApiParticipantEmail());
+      Log.d("backgroundbeacons", "DEVICE ID: " + this.settings.getDeviceId());
+      Log.d("backgroundbeacons", "API URL: " + this.settings.getApiUrl());
+      Log.d("backgroundbeacons", "API VERSION: " + this.settings.getApiVersion());
       Log.d("ul.ac.lancaster.library.backgroundbeacons", "SEND MOVEMENT DATA: " + this.settings.getSendMovementData());
     }
 
@@ -71,7 +71,7 @@ public class BackgroundBeaconService extends Service {
   }
 
   public void onDestroy() {
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "Destroying BackgroundBeaconService");
+    Log.d("backgroundbeacons", "Destroying BackgroundBeaconService");
   }
 
   public IBinder onBind(Intent intent) {
@@ -79,17 +79,17 @@ public class BackgroundBeaconService extends Service {
   }
 
   public void testBinding() {
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "TESTING SERVICE IS BOUND");
+    Log.d("backgroundbeacons", "TESTING SERVICE IS BOUND");
   }
 
   public void startMonitoringRegion(String identifier, String uuid, Integer major, Integer minor) {
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "Before local method declaration");
+    Log.d("backgroundbeacons", "Before local method declaration");
 
     Identifier regionMajor;
     Identifier regionMinor;
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: starting monitoring region");
+    Log.d("backgroundbeacons", "BACKGROUND: starting monitoring region");
 
     if (major == null) {
       regionMajor = null;
@@ -107,11 +107,11 @@ public class BackgroundBeaconService extends Service {
 
     monitoringRegions.put(identifier, region);
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: added region to array");
+    Log.d("backgroundbeacons", "BACKGROUND: added region to array");
 
     iBeaconManager.setMonitorNotifier(new BeaconLoggingMonitorNotifier(this.settings));
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: set notifier");
+    Log.d("backgroundbeacons", "BACKGROUND: set notifier");
 
     try {
 
@@ -121,10 +121,10 @@ public class BackgroundBeaconService extends Service {
         iBeaconManager.setBackgroundMode(true);
       }
 
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: started monitoring region");
+      Log.d("backgroundbeacons", "BACKGROUND: started monitoring region");
 
     } catch (RemoteException e) {
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "Error monitoring region");
+      Log.d("backgroundbeacons", "Error monitoring region");
     }
 
   }
@@ -139,9 +139,9 @@ public class BackgroundBeaconService extends Service {
 
       try {
         iBeaconManager.stopMonitoringBeaconsInRegion(region);
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: stopped monitoring region : " + region.toString());
+        Log.d("backgroundbeacons", "BACKGROUND: stopped monitoring region : " + region.toString());
       } catch (RemoteException e) {
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: error stopping monitoring region");
+        Log.d("backgroundbeacons", "BACKGROUND: error stopping monitoring region");
       }
 
     }
@@ -153,7 +153,7 @@ public class BackgroundBeaconService extends Service {
     Identifier regionMajor;
     Identifier regionMinor;
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: starting ranging region");
+    Log.d("backgroundbeacons", "BACKGROUND: starting ranging region");
 
     if (major == null) {
       regionMajor = null;
@@ -171,11 +171,11 @@ public class BackgroundBeaconService extends Service {
 
     rangingRegions.put(identifier, region);
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: added region to array");
+    Log.d("backgroundbeacons", "BACKGROUND: added region to array");
 
     iBeaconManager.setRangeNotifier(new BeaconLoggingRangeNotifier(this.settings));
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: set range notifier");
+    Log.d("backgroundbeacons", "BACKGROUND: set range notifier");
 
     try {
 
@@ -185,10 +185,10 @@ public class BackgroundBeaconService extends Service {
         iBeaconManager.setBackgroundMode(true);
       }
 
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: started ranging beacons in region");
+      Log.d("backgroundbeacons", "BACKGROUND: started ranging beacons in region");
 
     } catch (RemoteException e) {
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "Error ranging region");
+      Log.d("backgroundbeacons", "Error ranging region");
     }
 
   }
@@ -203,9 +203,9 @@ public class BackgroundBeaconService extends Service {
 
       try {
         iBeaconManager.stopRangingBeaconsInRegion(region);
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: stopped ranging region : "  + region.toString());
+        Log.d("backgroundbeacons", "BACKGROUND: stopped ranging region : "  + region.toString());
       } catch (RemoteException e) {
-        Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: error stopping ranging region");
+        Log.d("backgroundbeacons", "BACKGROUND: error stopping ranging region");
       }
 
     }

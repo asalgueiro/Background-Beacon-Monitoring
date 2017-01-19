@@ -1,4 +1,4 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
@@ -6,11 +6,11 @@ import org.altbeacon.beacon.Beacon;
 
 import android.util.Log;
 
-import uk.ac.lancaster.library.backgroundbeacons.SharedPreferencesUtility;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconTrackingService;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconTrackingEvent;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconInfo;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconEvent;
+import backgroundbeacons.SharedPreferencesUtility;
+import backgroundbeacons.BeaconTrackingService;
+import backgroundbeacons.BeaconTrackingEvent;
+import backgroundbeacons.BeaconInfo;
+import backgroundbeacons.BeaconEvent;
 
 import java.util.Date;
 import java.util.TimeZone;
@@ -29,7 +29,7 @@ public class BeaconLoggingRangeNotifier implements RangeNotifier {
 
   public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "didRangeBeaconsInRegion called");
+    Log.d("backgroundbeacons", "didRangeBeaconsInRegion called");
 
     String regionIdentifier = null;
     String regionUUID = null;
@@ -55,7 +55,7 @@ public class BeaconLoggingRangeNotifier implements RangeNotifier {
     BeaconRegion beaconRegion = new BeaconRegion(regionIdentifier, regionUUID, regionMajor, regionMinor);
 
     for (Beacon beacon: beacons) {
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", "I see beacon " + beacon);
+      Log.d("backgroundbeacons", "I see beacon " + beacon);
 
       String beaconUUID = null;
       String beaconMajor = null;
@@ -84,7 +84,7 @@ public class BeaconLoggingRangeNotifier implements RangeNotifier {
 
       this.beaconTrackingService.RangeBeaconEvent(beaconTrackingEvent);
 
-      Log.d("uk.ac.lancaster.library.backgroundbeacons", beaconTrackingEvent.toJsonObject().toString());
+      Log.d("backgroundbeacons", beaconTrackingEvent.toJsonObject().toString());
 
     }
 

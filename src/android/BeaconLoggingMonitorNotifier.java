@@ -1,16 +1,16 @@
-package uk.ac.lancaster.library.backgroundbeacons;
+package backgroundbeacons;
 
 import org.altbeacon.beacon.MonitorNotifier;
 import org.altbeacon.beacon.Region;
 
 import android.util.Log;
 
-import uk.ac.lancaster.library.backgroundbeacons.SharedPreferencesUtility;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconTrackingService;
-import uk.ac.lancaster.library.backgroundbeacons.RegionTrackingEvent;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconInfo;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconEvent;
-import uk.ac.lancaster.library.backgroundbeacons.BeaconRegion;
+import backgroundbeacons.SharedPreferencesUtility;
+import backgroundbeacons.BeaconTrackingService;
+import backgroundbeacons.RegionTrackingEvent;
+import backgroundbeacons.BeaconInfo;
+import backgroundbeacons.BeaconEvent;
+import backgroundbeacons.BeaconRegion;
 
 import java.util.Date;
 import java.util.TimeZone;
@@ -28,7 +28,7 @@ public class BeaconLoggingMonitorNotifier implements MonitorNotifier {
 
   public void didEnterRegion(Region region) {
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: Entered region.");
+    Log.d("backgroundbeacons", "BACKGROUND: Entered region.");
 
     String regionIdentifier = null;
     String regionUUID = null;
@@ -61,13 +61,13 @@ public class BeaconLoggingMonitorNotifier implements MonitorNotifier {
 
     this.beaconTrackingService.EnterRegionEvent(regionTrackingEvent);
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", regionTrackingEvent.toJsonObject().toString());
+    Log.d("backgroundbeacons", regionTrackingEvent.toJsonObject().toString());
 
   }
 
   public void didExitRegion(Region region) {
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: Exited region.");
+    Log.d("backgroundbeacons", "BACKGROUND: Exited region.");
 
     String regionIdentifier = null;
     String regionUUID = null;
@@ -100,12 +100,12 @@ public class BeaconLoggingMonitorNotifier implements MonitorNotifier {
 
     this.beaconTrackingService.ExitRegionEvent(regionTrackingEvent);
 
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", regionTrackingEvent.toJsonObject().toString());
+    Log.d("backgroundbeacons", regionTrackingEvent.toJsonObject().toString());
 
   }
 
   public void didDetermineStateForRegion(int state, Region region) {
-    Log.d("uk.ac.lancaster.library.backgroundbeacons", "BACKGROUND: Region changed state.");
+    Log.d("backgroundbeacons", "BACKGROUND: Region changed state.");
   }
 
 }
