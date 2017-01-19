@@ -31,10 +31,9 @@ public class BeaconTrackingService {
 
   public void EnterRegionEvent(RegionTrackingEvent event) {
 
-    if (this.settings.getSendMovementData()) {
       try {
 
-        URL url = new URL(this.apiUrl + this.apiVersion + "/app/events/location/region_events");
+        URL url = new URL(this.apiUrl);
 
         String json = event.toJsonObject().toString();
 
@@ -63,16 +62,14 @@ public class BeaconTrackingService {
       } catch (Exception e) {
 
       }
-    }
 
   }
 
   public void ExitRegionEvent(RegionTrackingEvent event) {
 
-    if (this.settings.getSendMovementData()) {
       try {
 
-        URL url = new URL(this.apiUrl + this.apiVersion + "/app/events/location/region_events");
+        URL url = new URL(this.apiUrl);
 
         String json = event.toJsonObject().toString();
 
@@ -101,16 +98,14 @@ public class BeaconTrackingService {
       } catch (Exception e) {
 
       }
-    }
 
   }
 
   public void RangeBeaconEvent(BeaconTrackingEvent event) {
 
-    if (this.settings.getSendMovementData()) {
       try {
 
-        URL url = new URL(this.apiUrl + this.apiVersion + "/app/events/location/beacon_events");
+        URL url = new URL(this.apiUrl);
 
         String json = event.toJsonObject().toString();
 
@@ -139,7 +134,7 @@ public class BeaconTrackingService {
       } catch (Exception e) {
 
       }
-    }
+
 
   }
 
