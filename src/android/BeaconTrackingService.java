@@ -19,21 +19,15 @@ public class BeaconTrackingService {
 
   private SharedPreferencesUtility settings;
   private final String apiUrl;
-  private final String apiVersion;
 
   public BeaconTrackingService(SharedPreferencesUtility settings) {
 
     this.settings = settings;
     this.apiUrl = this.settings.getApiUrl();
-    this.apiVersion = this.settings.getApiVersion();
-
   }
 
   public void EnterRegionEvent(RegionTrackingEvent event) {
-      webView.loadUrl("javascript:console.log('Enter Region Event');");
-
       try {
-
         URL url = new URL(this.apiUrl);
 
         String json = event.toJsonObject().toString();
@@ -65,8 +59,6 @@ public class BeaconTrackingService {
   }
 
   public void ExitRegionEvent(RegionTrackingEvent event) {
-      webView.loadUrl("javascript:console.log('Exit Region Event');");
-
       try {
 
         URL url = new URL(this.apiUrl);
@@ -100,8 +92,6 @@ public class BeaconTrackingService {
   }
 
   public void RangeBeaconEvent(BeaconTrackingEvent event) {
-      webView.loadUrl("javascript:console.log('Beacon Tracking Event');");
-
       try {
 
         URL url = new URL(this.apiUrl);
