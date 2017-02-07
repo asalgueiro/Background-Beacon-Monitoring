@@ -29,16 +29,15 @@ public class BeaconTrackingEvent {
     try {
 
       device.accumulate("uuid", this.deviceId);
-      device.accumulate("timestamp", this.timestamp);
-      beacon_event.accumulate("device", device);
-      beacon_event.accumulate("region", this.region.toJsonObject());
-      beacon_event.accumulate("beacon", this.beaconEvent.toJsonObject());
+//      device.accumulate("timestamp", this.timestamp);
+//      beacon_event.accumulate("device", device);
+//      beacon_event.accumulate("region", this.region.toJsonObject());
+//      beacon_event.accumulate("beacon", this.beaconEvent.toJsonObject());
 
-      response.accumulate("beacon_event", beacon_event);
+//      response.accumulate("beacon_event", beacon_event);
       response.accumulate("accion", "beacon_detect");
 
     } catch (JSONException e) {
-       response.accumulate("error", "BeaconTracking");
     }
 
     return response;
