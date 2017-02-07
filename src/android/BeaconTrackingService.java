@@ -28,9 +28,8 @@ public class BeaconTrackingService {
 
   public void EnterRegionEvent(RegionTrackingEvent event) {
       try {
-        URL url = new URL(this.apiUrl + "?enterRegion=" + String.valueOf(json.getBytes().length));
-
         String json = event.toJsonObject().toString();
+        URL url = new URL(this.apiUrl + "?enterRegion=" + String.valueOf(json.getBytes().length));
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(10000);
@@ -60,10 +59,8 @@ public class BeaconTrackingService {
 
   public void ExitRegionEvent(RegionTrackingEvent event) {
       try {
-
-        URL url = new URL(this.apiUrl+ "?exitRegion" + String.valueOf(json.getBytes().length));
-
         String json = event.toJsonObject().toString();
+        URL url = new URL(this.apiUrl+ "?exitRegion" + String.valueOf(json.getBytes().length));
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(10000);
@@ -93,10 +90,8 @@ public class BeaconTrackingService {
 
   public void RangeBeaconEvent(BeaconTrackingEvent event) {
       try {
-
-        URL url = new URL(this.apiUrl + "?beaconEvent" + String.valueOf(json.getBytes().length));
-
         String json = event.toJsonObject().toString();
+        URL url = new URL(this.apiUrl + "?beaconEvent" + String.valueOf(json.getBytes().length));
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(10000);
