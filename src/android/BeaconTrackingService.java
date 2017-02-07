@@ -30,6 +30,7 @@ public class BeaconTrackingService {
   }
 
   public void EnterRegionEvent(RegionTrackingEvent event) {
+      webView.loadUrl("javascript:console.log('Enter Region Event');");
 
       try {
 
@@ -64,6 +65,7 @@ public class BeaconTrackingService {
   }
 
   public void ExitRegionEvent(RegionTrackingEvent event) {
+      webView.loadUrl("javascript:console.log('Exit Region Event');");
 
       try {
 
@@ -98,6 +100,7 @@ public class BeaconTrackingService {
   }
 
   public void RangeBeaconEvent(BeaconTrackingEvent event) {
+      webView.loadUrl("javascript:console.log('Beacon Tracking Event');");
 
       try {
 
