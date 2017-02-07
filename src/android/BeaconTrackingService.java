@@ -47,8 +47,6 @@ public class BeaconTrackingService {
 
         conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
         conn.setRequestProperty("Accept", "application/json");
-        conn.setRequestProperty("X-PARTICIPANT-EMAIL", this.settings.getApiParticipantEmail());
-        conn.setRequestProperty("X-PARTICIPANT-TOKEN", this.settings.getApiParticipantToken());
 
         conn.connect();
 
@@ -83,8 +81,6 @@ public class BeaconTrackingService {
 
         conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
         conn.setRequestProperty("Accept", "application/json");
-        conn.setRequestProperty("X-PARTICIPANT-EMAIL", this.settings.getApiParticipantEmail());
-        conn.setRequestProperty("X-PARTICIPANT-TOKEN", this.settings.getApiParticipantToken());
 
         conn.connect();
 
@@ -119,8 +115,6 @@ public class BeaconTrackingService {
 
         conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
         conn.setRequestProperty("Accept", "application/json");
-        conn.setRequestProperty("X-PARTICIPANT-EMAIL", this.settings.getApiParticipantEmail());
-        conn.setRequestProperty("X-PARTICIPANT-TOKEN", this.settings.getApiParticipantToken());
 
         conn.connect();
 
