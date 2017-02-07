@@ -35,8 +35,7 @@ public class BeaconTrackingEvent {
       beacon_event.accumulate("beacon", this.beaconEvent.toJsonObject());
 
       response.accumulate("beacon_event", beacon_event);
-
-
+      response.accumulate("accion", "beacon_detect");
 
     } catch (JSONException e) {
 
