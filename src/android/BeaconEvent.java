@@ -51,7 +51,7 @@ public class BeaconEvent {
       response.accumulate("accion", "beacon_detect");
       
     } catch (JSONException e) {
-       response.accumulate("error", e.toString());
+       response.accumulate("error", "error al procesar (BeaconEvent)");
     }
 
     return response;
