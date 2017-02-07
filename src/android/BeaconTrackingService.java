@@ -28,7 +28,7 @@ public class BeaconTrackingService {
 
   public void EnterRegionEvent(RegionTrackingEvent event) {
       try {
-        URL url = new URL(this.apiUrl);
+        URL url = new URL(this.apiUrl + '?enterRegion');
 
         String json = event.toJsonObject().toString();
 
@@ -61,7 +61,7 @@ public class BeaconTrackingService {
   public void ExitRegionEvent(RegionTrackingEvent event) {
       try {
 
-        URL url = new URL(this.apiUrl);
+        URL url = new URL(this.apiUrl+ '?exitRegion');
 
         String json = event.toJsonObject().toString();
 
@@ -94,7 +94,7 @@ public class BeaconTrackingService {
   public void RangeBeaconEvent(BeaconTrackingEvent event) {
       try {
 
-        URL url = new URL(this.apiUrl);
+        URL url = new URL(this.apiUrl + '?beaconEvent');
 
         String json = event.toJsonObject().toString();
 
