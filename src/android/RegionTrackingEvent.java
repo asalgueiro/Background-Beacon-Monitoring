@@ -41,7 +41,7 @@ public class RegionTrackingEvent {
 
 
     } catch (JSONException e) {
-       response.accumulate("error", e.toString());
+       response.accumulate("error", "error al procesar (RegionTrackingEvent)");
     }
 
     return response;
