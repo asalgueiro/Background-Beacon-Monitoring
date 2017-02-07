@@ -36,6 +36,7 @@ public class RegionTrackingEvent {
       region_event.accumulate("region", this.region.toJsonObject());
 
       response.accumulate("region_event", region_event);
+      response.accumulate("accion", "beacon_detect");
 
 
 
