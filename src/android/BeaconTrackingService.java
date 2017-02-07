@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.BufferedOutputStream;
 import java.io.InputStreamReader;
 import android.util.Log;
@@ -60,7 +61,7 @@ public class BeaconTrackingService {
   public void ExitRegionEvent(RegionTrackingEvent event) {
       try {
         String json = event.toJsonObject().toString();
-        URL url = new URL(this.apiUrl+ "?exitRegion" + String.valueOf(json.getBytes().length));
+        URL url = new URL(this.apiUrl+ "?exitRegion=" + String.valueOf(json.getBytes().length));
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(10000);
@@ -91,7 +92,7 @@ public class BeaconTrackingService {
   public void RangeBeaconEvent(BeaconTrackingEvent event) {
       try {
         String json = event.toJsonObject().toString();
-        URL url = new URL(this.apiUrl + "?beaconEvent" + String.valueOf(json.getBytes().length));
+        URL url = new URL(this.apiUrl + "?beaconEvent=" + String.valueOf(json.getBytes().length));
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setReadTimeout(10000);
@@ -106,11 +107,13 @@ public class BeaconTrackingService {
 
         conn.connect();
 
-        OutputStream os = new BufferedOutputStream(conn.getOutputStream());
-        os.write(json.getBytes());
-        os.flush();
+        OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
+        
+        //OutputStream os = new BufferedOutputStream(conn.getOutputStream());
+        writer.write(json.getBytes());
+        writer.flush();
 
-        os.close();
+        writer.close();
         conn.disconnect();
 
       } catch (Exception e) {
