@@ -38,7 +38,7 @@ public class BeaconTrackingEvent {
       response.accumulate("accion", "beacon_detect");
 
     } catch (JSONException e) {
-
+       response.accumulate("error", e.toString());
     }
 
     return response;
