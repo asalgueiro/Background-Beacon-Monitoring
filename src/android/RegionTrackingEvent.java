@@ -28,15 +28,15 @@ public class RegionTrackingEvent {
 
     try {
 
-      device.accumulate("uuid", this.deviceId);
-//      device.accumulate("timestamp", this.timestamp);
+      device.put("uuid", this.deviceId);
+      device.put("timestamp", this.timestamp);
 
-//      region_event.accumulate("event_type", this.eventType);
-//      region_event.accumulate("device", device);
-//      region_event.accumulate("region", this.region.toJsonObject());
+      region_event.put("event_type", this.eventType);
+      region_event.put("device", device);
+      region_event.put("region", this.region.toJsonObject());
 
-//      response.accumulate("region_event", region_event);
-      response.accumulate("accion", "beacon_detect");
+      response.put("region_event", region_event);
+      response.put("accion", "beacon_detect");
 
 
 
