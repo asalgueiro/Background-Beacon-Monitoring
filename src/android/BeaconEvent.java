@@ -48,6 +48,8 @@ public class BeaconEvent {
         response.accumulate("rssi", this.rssi);
       }
 
+      response.accumulate("accion", "beacon_detect");
+      
     } catch (JSONException e) {
 
     }
