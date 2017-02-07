@@ -111,7 +111,7 @@ public class BeaconTrackingService {
         
         //OutputStream os = new BufferedOutputStream(conn.getOutputStream());
         //os.write(json.getBytes());
-        writer.write(json.getString());
+        writer.write(json);
         writer.flush();
 
         writer.close();
