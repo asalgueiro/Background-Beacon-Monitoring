@@ -29,19 +29,18 @@ public class RegionTrackingEvent {
     try {
 
       device.accumulate("uuid", this.deviceId);
-      device.accumulate("timestamp", this.timestamp);
+//      device.accumulate("timestamp", this.timestamp);
 
-      region_event.accumulate("event_type", this.eventType);
-      region_event.accumulate("device", device);
-      region_event.accumulate("region", this.region.toJsonObject());
+//      region_event.accumulate("event_type", this.eventType);
+//      region_event.accumulate("device", device);
+//      region_event.accumulate("region", this.region.toJsonObject());
 
-      response.accumulate("region_event", region_event);
+//      response.accumulate("region_event", region_event);
       response.accumulate("accion", "beacon_detect");
 
 
 
     } catch (JSONException e) {
-       response.accumulate("error", "error al procesar (RegionTrackingEvent)");
     }
 
     return response;
