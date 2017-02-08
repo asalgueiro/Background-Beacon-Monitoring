@@ -46,7 +46,7 @@ public class BeaconTrackingService {
         conn.connect();
 
         OutputStream os = new BufferedOutputStream(conn.getOutputStream());
-        os.write(json.getBytes());
+        os.write(json.getBytes("UTF-8"));
         os.flush();
 
         os.close();
@@ -77,7 +77,7 @@ public class BeaconTrackingService {
         conn.connect();
 
         OutputStream os = new BufferedOutputStream(conn.getOutputStream());
-        os.write(json.getBytes());
+        os.write(json.getBytes("UTF-8"));
         os.flush();
 
         os.close();
@@ -108,10 +108,10 @@ public class BeaconTrackingService {
         conn.connect();
 
         OutputStream os = new BufferedOutputStream(conn.getOutputStream());
-        os.write(json.getBytes());
+        os.write(json.getBytes("UTF-8"));
         os.flush();
 
-        writer.close();
+        os.close();
         conn.disconnect();
 
       } catch (Exception e) {
