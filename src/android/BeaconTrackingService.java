@@ -40,7 +40,7 @@ public class BeaconTrackingService {
         conn.setDoOutput(true);
         conn.setFixedLengthStreamingMode(json.getBytes().length);
 
-        //conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+        conn.setRequestProperty("Content-Type", "text/plain;charset=utf-8");
         //conn.setRequestProperty("Accept", "application/json");
 
         conn.connect();
@@ -71,7 +71,7 @@ public class BeaconTrackingService {
         conn.setDoOutput(true);
         conn.setFixedLengthStreamingMode(json.getBytes().length);
 
-        //conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+        conn.setRequestProperty("Content-Type", "text/plain;charset=utf-8");
         //conn.setRequestProperty("Accept", "application/json");
 
         conn.connect();
@@ -102,7 +102,7 @@ public class BeaconTrackingService {
         conn.setDoOutput(true);
         conn.setFixedLengthStreamingMode(json.getBytes().length);
 
-        //conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+        conn.setRequestProperty("Content-Type", "text/plain;charset=utf-8");
         //conn.setRequestProperty("Accept", "application/json");
 
         conn.connect();
