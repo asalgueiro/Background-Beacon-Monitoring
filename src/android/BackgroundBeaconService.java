@@ -70,10 +70,12 @@ public class BackgroundBeaconService extends Service {
 
   }
 
+  @Override
   public void onDestroy() {
     Log.d("backgroundbeacons", "Destroying BackgroundBeaconService");
+    super.onDestroy();
   }
-
+  
   @Override
   public int onStartCommand(Intent intent, int flags, int startId) {
     Log.d("backgroundbeacons", "Received start id " + startId + ": " + intent);
