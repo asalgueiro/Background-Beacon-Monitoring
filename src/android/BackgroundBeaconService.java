@@ -74,6 +74,12 @@ public class BackgroundBeaconService extends Service {
     Log.d("backgroundbeacons", "Destroying BackgroundBeaconService");
   }
 
+  @Override
+  public int onStartCommand(Intent intent, int flags, int startId) {
+    Log.d("backgroundbeacons", "Received start id " + startId + ": " + intent);
+    return START_STICKY;
+  }
+
   public IBinder onBind(Intent intent) {
     return mBinder;
   }
