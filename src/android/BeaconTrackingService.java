@@ -40,13 +40,13 @@ public class BeaconTrackingService {
         conn.setDoOutput(true);
         conn.setFixedLengthStreamingMode(json.getBytes().length);
 
-        conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
-        conn.setRequestProperty("Accept", "application/json");
+        //conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+        //conn.setRequestProperty("Accept", "application/json");
 
         conn.connect();
 
         OutputStream os = new BufferedOutputStream(conn.getOutputStream());
-        os.write(json.getBytes("UTF-8"));
+        os.write(json.getBytes());
         os.flush();
 
         os.close();
@@ -71,13 +71,13 @@ public class BeaconTrackingService {
         conn.setDoOutput(true);
         conn.setFixedLengthStreamingMode(json.getBytes().length);
 
-        conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
-        conn.setRequestProperty("Accept", "application/json");
+        //conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+        //conn.setRequestProperty("Accept", "application/json");
 
         conn.connect();
 
         OutputStream os = new BufferedOutputStream(conn.getOutputStream());
-        os.write(json.getBytes("UTF-8"));
+        os.write(json.getBytes());
         os.flush();
 
         os.close();
@@ -102,13 +102,13 @@ public class BeaconTrackingService {
         conn.setDoOutput(true);
         conn.setFixedLengthStreamingMode(json.getBytes().length);
 
-        conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
-        conn.setRequestProperty("Accept", "application/json");
+        //conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+        //conn.setRequestProperty("Accept", "application/json");
 
         conn.connect();
 
         OutputStream os = new BufferedOutputStream(conn.getOutputStream());
-        os.write(json.getBytes("UTF-8"));
+        os.write(json.getBytes());
         os.flush();
 
         os.close();
