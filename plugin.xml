@@ -39,8 +39,7 @@
         android:exported="true"
         android:isolatedProcess="false"
         android:label="BackgroundBeaconService"
-        android:name="backgroundbeacons.BackgroundBeaconService"
-        android:process=":ServiceProcess" />
+        android:name="backgroundbeacons.BackgroundBeaconService" />
     </config-file>
 
     <source-file src="src/android/BackgroundBeaconManager.java" target-dir="src" />
