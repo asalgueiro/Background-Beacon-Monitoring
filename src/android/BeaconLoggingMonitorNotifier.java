@@ -96,7 +96,7 @@ public class BeaconLoggingMonitorNotifier implements MonitorNotifier {
     dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
     String timestamp = dateFormat.format(new Date());
 
-    RegionTrackingEvent regionTrackingEvent = new RegionTrackingEvent(this.settings.getDeviceId(), "exited_region", beaconRegion, timestamp);
+    RegionTrackingEvent regionTrackingEvent = new RegionTrackingEvent(this.settings.getDeviceId(), this.settings.getApiParticipantToken(), "exited_region", beaconRegion, timestamp);
 
     this.beaconTrackingService.ExitRegionEvent(regionTrackingEvent);
 
