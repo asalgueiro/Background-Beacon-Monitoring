@@ -37,7 +37,7 @@ public class BeaconTrackingEvent {
       beacon_event.put("beacon", this.beaconEvent.toJsonObject());
 
       response.put("beacon_event", beacon_event);
-      response.put("token", apiToken);
+      response.put("token", this.apiToken);
       response.put("accion", "beacon_detect");
 
     } catch (JSONException e) {
