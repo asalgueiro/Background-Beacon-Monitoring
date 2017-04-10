@@ -9,12 +9,14 @@ import org.json.JSONException;
 public class RegionTrackingEvent {
 
   private String deviceId;
+  private String apiToken;
   private String eventType;
   private BeaconRegion region;
   private String timestamp;
 
-  public RegionTrackingEvent(String deviceId, String eventType, BeaconRegion region, String timestamp) {
+  public RegionTrackingEvent(String deviceId, String apiToken, String eventType, BeaconRegion region, String timestamp) {
     this.deviceId = deviceId;
+    this.apiToken = apiToken;
     this.eventType = eventType;
     this.region = region;
     this.timestamp = timestamp;
@@ -37,6 +39,7 @@ public class RegionTrackingEvent {
 
       response.put("region_event", region_event);
       response.put("accion", "beacon_detect");
+      response.put("token", this.apiToken);
 
 
 
