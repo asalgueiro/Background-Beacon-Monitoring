@@ -80,7 +80,7 @@ public class BeaconLoggingRangeNotifier implements RangeNotifier {
       dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
       String timestamp = dateFormat.format(new Date());
 
-      BeaconTrackingEvent beaconTrackingEvent = new BeaconTrackingEvent(this.settings.getDeviceId(), beaconEvent, beaconRegion, timestamp);
+      BeaconTrackingEvent beaconTrackingEvent = new BeaconTrackingEvent(this.settings.getDeviceId(), this.settings.getApiParticipantToken(), beaconEvent, beaconRegion, timestamp);
 
       this.beaconTrackingService.RangeBeaconEvent(beaconTrackingEvent);
 
